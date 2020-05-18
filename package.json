@@ -1,8 +1,28 @@
 {
   "name": "today",
+  "author": {
+    "name": "Alec Springel",
+    "email": "alecspringel@gmail.com"
+  },
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "productName": "Today",
   "main": "electron/main.js",
+  "build": {
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "repo": "today",
+      "owner": "alecspringel"
+    },
+    "win": {
+      "icon": "./build/icon.ico"
+    }
+  },
   "dependencies": {
     "@craco/craco": "^5.6.4",
     "@testing-library/jest-dom": "^4.2.4",
@@ -41,6 +61,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^8.3.0"
+    "electron": "^8.3.0",
+    "electron-builder": "^22.6.0"
   }
 }
