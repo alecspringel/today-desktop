@@ -17,7 +17,10 @@ function createWindow () {
     { label: 'Quit', click:  function(){
         app.isQuiting = true;
         app.quit();
-    } }
+    } },
+    { label: 'DevTools', click:  function(){
+      mainWindow.webContents.openDevTools()
+  } }
   ]);
   trayIcon.setContextMenu(contextMenu)
 
@@ -41,7 +44,7 @@ function createWindow () {
 
   var sidebar = {
     height: screen.getPrimaryDisplay().workAreaSize.height,
-    width: 1100
+    width: 600
   }
 
   mainWindow = new BrowserWindow({
@@ -87,16 +90,34 @@ function createWindow () {
   //mainWindow.webContents.openDevTools()
 }
 
-app.on('ready', createWindow);
+// Prevents flashing when opening and closing
 
+
+app.on('ready', createWindow);
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
-
 app.on('activate', function () {
   if (mainWindow === null) {
     createWindow();
   }
 });
+
+ipcMain.on('minimize', () => {
+  mainWindow.minimize(); 
+
+})
+
+ipcMain.on('maximize', () => {
+  if (!mainWindow.isMaximized()) {
+    mainWindow.maximize();          
+  } else {
+    mainWindow.unmaximize();
+  }
+})
+
+ipcMain.on('close', () => {
+  mainWindow.close();
+})
