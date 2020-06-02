@@ -5,7 +5,7 @@ import { SliderOption } from './SliderOption';
 const Container = styled.div`
   height: 30px;
   padding: 5px;
-  background: #131217;
+  background: ${props => props.theme.container || '#131217' };
   border-radius: 5px;
   width: ${props => props.width};
   display: grid;

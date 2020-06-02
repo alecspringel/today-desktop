@@ -2,6 +2,22 @@ const electron = require('electron')
 const url = require('url')
 const path = require('path')
 const { app, BrowserWindow, ipcMain, Tray, Menu, screen } = require('electron');
+const Datastore = require('nedb');
+const userDataPath = (electron.app || electron.remote.app).getPath('userData');
+
+//DATABASE
+let dbPath = path.join(userDataPath, 'user.db')
+let USER_DB = new Datastore({
+  filename: dbPath,
+  autoload: true,
+  onload: err => { 
+      if (err) {
+          console.log("Error loading the DB: " + err);
+      }
+  },
+})
+
+global.USER_DB = USER_DB;
 
 
 const iconPath = path.join(__dirname, '/assets/imgs/taskbar_icon.ico')
