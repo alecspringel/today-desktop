@@ -37,6 +37,7 @@ class Profile extends Component {
           <BackBtn onClick={this.props.showProfile}><ArrowImg src={require("../../assets/imgs/arrow-left-white.png")}/></BackBtn>
         </Top>
         <h1>Settings</h1>
+        <h3>Theme Color</h3>
         <ThemePicker setTheme={this.props.setTheme}/>
       </div>
     );

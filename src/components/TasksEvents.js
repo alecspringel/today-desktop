@@ -96,9 +96,13 @@ class TasksEvents extends Component {
     console.log(task)
     var taskList = this.state.taskList
     var updated = taskList.filter((doc) => doc !== task)
-    this.setState({
-      taskList: updated
-    })
+    USER_DB.remove({name: task.name, createdDate: task.createdDate}, function(err, numRemoved){
+      if (numRemoved !== 0){
+        this.setState({
+          taskList: updated
+        })
+      }
+    }.bind(this))
   }
   
 
