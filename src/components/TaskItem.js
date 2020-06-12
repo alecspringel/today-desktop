@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import CheckBox from './General/Checkbox';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import CheckBox from './General/Checkbox'
 
 const Container = styled.div`
   background: #1e1e20;
@@ -24,28 +24,28 @@ const NameContainer = styled.div`
 `
 
 class TaskItem extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       checked: false
     }
     this.check = this.check.bind(this)
   }
 
-  check() {
-    this.setState({checked: !this.state.checked})
-    setTimeout(function(){
-      if(this.state.checked === true){
+  check () {
+    this.setState({ checked: !this.state.checked })
+    setTimeout(function () {
+      if (this.state.checked === true) {
         this.props.removeTask(this.props.task)
       }
     }.bind(this), 1000)
   }
 
-  render() {
+  render () {
     return (
-      <Container checked={this.state.checked}><NameContainer checked={this.state.checked}>{this.props.task.name}</NameContainer><CheckBox checked={this.state.checked} onClick={this.check}/></Container>
-    );
+      <Container checked={this.state.checked}><NameContainer checked={this.state.checked}>{this.props.task.name}</NameContainer><CheckBox checked={this.state.checked} onClick={this.check} /></Container>
+    )
   }
 }
 
-export default TaskItem;
+export default TaskItem

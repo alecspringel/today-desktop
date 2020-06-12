@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const TaskInput = styled.input`
@@ -16,27 +16,26 @@ const TaskInput = styled.input`
   }
 `
 
-
 class HoverTextInput extends Component {
-  constructor(props){
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       clicked: false
     }
   }
 
-  activate(e){
-    this.setState({clicked: true})
-    if (this.props.onClick){
+  activate (e) {
+    this.setState({ clicked: true })
+    if (this.props.onClick) {
       this.props.onClick(e)
     }
   }
 
-  render() {
+  render () {
     return (
-      <TaskInput type="text" name={this.props.name} onChange={this.props.onChange} onClick={(e) => this.activate(e)} value={this.props.value} clicked={this.state.clicked}/>
-    );
+      <TaskInput type='text' name={this.props.name} onChange={this.props.onChange} onClick={(e) => this.activate(e)} value={this.props.value} clicked={this.state.clicked} />
+    )
   }
 }
 
-export default HoverTextInput;
+export default HoverTextInput

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import HoverTextInput from './General/HoverTextInput';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import HoverTextInput from './General/HoverTextInput'
 
 const Container = styled.div`
   background: #2a2a2c;
@@ -10,20 +10,20 @@ const Container = styled.div`
   text-align: left;
 `
 
-
 class AddTask extends Component {
-  render() {
+  render () {
     return (
       <Container>
-        <HoverTextInput 
-          type="text"
-          name="taskInput"
+        <HoverTextInput
+          type='text'
+          name='taskInput'
           onClick={this.props.clearPlaceholder}
           onChange={this.props.handleInputChange}
-          value={this.props.taskInput}/>
+          value={this.props.taskInput}
+        />
       </Container>
-    );
+    )
   }
 }
 
-export default AddTask;
+export default AddTask

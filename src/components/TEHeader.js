@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components'
-import IconBtn from './General/IconBtn';
+import IconBtn from './General/IconBtn'
 
 const Header = styled.div`
   background: #191A1F;
@@ -17,15 +17,22 @@ const Label = styled.label`
   margin-left: 30px;
 `
 
-const TEHeader = (props) => (
-    <Header>
-      <Label>Task</Label>
-      { !props.adding 
-        ? <IconBtn label="Add Task" onClick={props.toggleTask} img={"plus"}/>
-        : <><IconBtn label="Create" onClick={props.createTask} img={"check"} color='#06ae53'/> 
-        <IconBtn label="Cancel" onClick={props.toggleTask} img={"x"} color='#FD2D55' margin={"0 85px"}/></>
-      }
-    </Header>
-  );
+const ActionDiv = styled.div`
+  float: right;
+`
 
-export default TEHeader;
+const TEHeader = (props) => (
+  <Header>
+    <Label>Task</Label>
+    <ActionDiv>
+      {!props.adding
+        ? <IconBtn label='Add Task' onClick={props.toggleTask} img={require('../assets/imgs/plus-white.png')} />
+        : <>
+          <IconBtn label='Cancel' onClick={props.toggleTask} img={require('../assets/imgs/x-white.png')} color='#FD2D55' margin='0 85px' />
+          <IconBtn label='Create' onClick={props.createTask} img={require('../assets/imgs/checkmark-white.png')} color='#06ae53' />
+        </>}
+    </ActionDiv>
+  </Header>
+)
+
+export default TEHeader
