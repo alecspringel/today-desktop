@@ -64,7 +64,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^8.3.0",
+    "electron": "^11.5.0",
     "electron-builder": "^22.6.0"
   }
 }
