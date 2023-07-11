@@ -31,7 +31,7 @@
     "nedb": "^1.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "standard": "^14.3.4",
     "styled-components": "^5.1.1"
   },
